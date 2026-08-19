@@ -16,9 +16,11 @@ export default function TopBar(){
             <TopBarElements title={"My Network"} />
             <TopBarElements title={"Jobs"} />
             <TopBarElements title={"Messaging"}/>
+            <TopBarElements title={"Notifications"}/>
             
-            <TopBarWithNotifications title={"Notifications"} />
+           
             <TopBarWithNotifications title={"Me"} />
+            <TopBarWithNotifications title={"for Bussiness"}/>
         </div>
     
     </div>

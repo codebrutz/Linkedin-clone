@@ -1,4 +1,4 @@
-import { Home, Users, Briefcase, MessageSquare } from "lucide-react";
+import { Home, Users, Briefcase, MessageSquare , Bell } from "lucide-react";
 
 export default function TopBarElements(props:any){
     {/*Used a proper map to map each element as per prop.title */}
@@ -6,7 +6,8 @@ export default function TopBarElements(props:any){
         "Home": Home,
         "My Network": Users,
         "Jobs": Briefcase,
-        "Messaging": MessageSquare
+        "Messaging": MessageSquare,
+        "Notifications": Bell,
     };
     const Icon = iconMap[props.title]; 
 
