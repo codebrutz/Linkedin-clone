@@ -1,5 +1,5 @@
 export default function Searchbar(){
-    return <div style={{border:"2px solid #487eb0" , borderRadius:"15px"}}>
-        <input type="text" placeholder="Looking for a new job"/>
+    return <div>
+        <input style={{border:"2px sollid #487eb0" , borderRadius:"15px", width:"50vw" , height:"4vh"}} type="text" placeholder="Looking for a new job"/>
     </div>
 }

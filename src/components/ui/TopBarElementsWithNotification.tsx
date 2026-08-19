@@ -1,15 +1,32 @@
-import { Bell, User ,Grid , ChevronDown} from "lucide-react";
+import { User, Grid, ChevronDown } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-export default function TopBarWithNotifications(props:any){
-    const iconMap:any = {
-        
-        "Me": User ,
-        "for Bussiness": Grid
-    };
-    const Icon = iconMap[props.title];
-    return <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"5px"}}>
-        {Icon ? <Icon size={25} /> : <img style={{width:"25px", height:"25px"}} src={props.icon} alt="logo-icon" />}
-        <p style={{margin:"0"}}>{props.title}   <ChevronDown /></p>
-       
+const iconMap: Record<string, LucideIcon> = {
+  Me: User,
+  "for Bussiness": Grid,
+};
+
+type TopBarWithNotificationsProps = {
+  title: string;
+  icon?: string;
+};
+
+export default function TopBarWithNotifications({ title, icon }: TopBarWithNotificationsProps) {
+  const Icon = iconMap[title];
+
+  return (
+    <div className="nav-item">
+      <div className="nav-item__icon-wrap">
+        {Icon ? (
+          <Icon size={24} className="nav-item__icon" />
+        ) : (
+          <img className="nav-item__img" src={icon} alt="logo-icon" />
+        )}
+      </div>
+      <p className="nav-item__label">
+        {title}
+        <ChevronDown size={12} className="nav-item__chevron" />
+      </p>
     </div>
+  );
 }

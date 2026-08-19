@@ -1,18 +1,34 @@
-import { Home, Users, Briefcase, MessageSquare , Bell } from "lucide-react";
+import { Home, Users, Briefcase, MessageSquare, Bell } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-export default function TopBarElements(props:any){
-    {/*Used a proper map to map each element as per prop.title */}
-    const iconMap:any = {
-        "Home": Home,
-        "My Network": Users,
-        "Jobs": Briefcase,
-        "Messaging": MessageSquare,
-        "Notifications": Bell,
-    };
-    const Icon = iconMap[props.title]; 
+const iconMap: Record<string, LucideIcon> = {
+  Home,
+  "My Network": Users,
+  Jobs: Briefcase,
+  Messaging: MessageSquare,
+  Notifications: Bell,
+};
 
-    return <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"5px"}}>
-        {Icon ? <Icon size={25} /> : <img style={{width:"25px", height:"25px"}}  alt="logo-icon" />}
-        <p style={{margin:"0"}}>{props.title}</p>
+type TopBarElementsProps = {
+  title: string;
+  count?: number | string;
+};
+
+export default function TopBarElements({ title, count = 0 }: TopBarElementsProps) {
+  const Icon = iconMap[title];
+  const numericCount = Number(count);
+
+  return (
+    <div className="nav-item">
+      <div className="nav-item__icon-wrap">
+        {Icon && <Icon size={24} className="nav-item__icon" />}
+        {numericCount > 0 && (
+          <span className="nav-item__badge">
+            {numericCount > 99 ? "99+" : numericCount}
+          </span>
+        )}
+      </div>
+      <p className="nav-item__label">{title}</p>
     </div>
+  );
 }

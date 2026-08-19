@@ -11,12 +11,12 @@ export default function TopBar(){
         </div>
 
         {/*//icons zone */}
-        <div style={{display:"flex", marginRight:"15px", gap:"15px"}}>
-            <TopBarElements title={"Home"} />
-            <TopBarElements title={"My Network"} />
-            <TopBarElements title={"Jobs"} />
-            <TopBarElements title={"Messaging"}/>
-            <TopBarElements title={"Notifications"}/>
+        <div style={{display:"flex", marginRight:"15px", gap:"4px", alignItems:"center"}}>
+            <TopBarElements title={"Home"} count={0} />
+            <TopBarElements title={"My Network"} count={700} />
+            <TopBarElements title={"Jobs"} count={21} />
+            <TopBarElements title={"Messaging"} count={5} />
+            <TopBarElements title={"Notifications"} count={5} />
             
            
             <TopBarWithNotifications title={"Me"} />
